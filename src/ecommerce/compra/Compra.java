@@ -1,7 +1,9 @@
 package ecommerce.compra;
 
 public abstract class Compra {
-
+	
+	
+	
 	private int numeroDoCartao;
 	private int tipo;
 	private String titular;
@@ -64,15 +66,28 @@ public void setPix(String pix) {
 	this.pix = pix;
 }
 
-public boolean pagar() {
-	if(this.getValorCompra() < valorMinimo) {
+	public boolean pagar() {
+		if(this.getValorCompra() < valorMinimo) {
 		System.out.println("\nO valor da compra não atingiu a valor mínimo esperado de R$ 20,00");
 		return false;
 	}
 	return true;
-
 	
-}
-	
+    }
+	public void visualizar() {
+		String tipo = "";
+		
+		switch(this.tipo) {
+		case 1:
+			tipo = "Cartão de Crédito";
+		break;
+		case 2:
+			tipo = "Cartão de Débito";
+		break;
+		case 3:
+			tipo = "PIX";
+		break;
+		}
+	}
 }
 
